@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import 'bootstrap-icons/font/bootstrap-icons.min.css';
+@import 'https://bootstrap-icons/font/bootstrap-icons.min.css';
 
 .dropdown-item{
     cursor: pointer;
