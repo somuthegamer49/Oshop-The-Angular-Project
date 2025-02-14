@@ -1,0 +1,36 @@
+<div class="container m-3 p-3 w-50">
+  <div class="mb-3 w-50">
+    <label for="exampleInputEmail1" class="form-label">Pincode</label>
+    <input
+      type="text"
+      [ngClass]="!checkpin?'form-control admin-product-form border-danger':'form-control admin-product-form'"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      (input)="getPincode($event)"
+    />
+  </div>
+  <div class="mb-3 w-50">
+    <label for="exampleInputEmail1" class="form-label">Phone</label>
+    <input
+      type="text"
+      [ngClass]="!checkphone?'form-control admin-product-form border-danger':'form-control admin-product-form'"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      (input)="getPhone($event)"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Address</label>
+    <div class="form-floating">
+      <textarea
+        [ngClass]="!checaddress?'form-control admin-product-form border-danger':'form-control admin-product-form'"
+        placeholder="Leave a comment here"
+        id="floatingTextarea2"
+        style="height: 100px"
+        (input)="getAddress($event)"
+      ></textarea>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" (click)="placeOrder()">Purchase</button>
+</div>

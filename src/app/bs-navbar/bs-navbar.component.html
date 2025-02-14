@@ -1,0 +1,28 @@
+<ul class="nav nav-tabs navpos">
+  <li class="nav-item">
+    <p class="nav-link active" (click)="routeHome()" aria-current="page"><i class="bi bi-house-door-fill" style="color: darkolivegreen; cursor: pointer;"></i></p>
+  </li>
+  <li class="nav-item">
+    <p class="nav-link active" (click)="routetoCart()" aria-current="page"><i class="bi bi-cart-fill" style="color: darkolivegreen; cursor: pointer;"></i> <span *ngIf="cartlen>0" style="color: darkolivegreen;">{{cartlen}}</span></p>
+  </li>
+  <li *ngIf="!Admin && !notAdmin" class="nav-item">
+    <p class="nav-link active" style="cursor: pointer;" (click)="Login()" aria-current="page">Log In</p>
+  </li>
+  <li *ngIf="Admin || notAdmin" class="nav-item dropdown">
+    <a
+      class="nav-link dropdown-toggle"
+      data-bs-toggle="dropdown"
+      href="#"
+      role="button"
+      aria-expanded="false"
+      >{{username}}</a
+    >
+    <ul class="dropdown-menu">
+      <li style="cursor: pointer;" (click)="myOrder()"><p class="dropdown-item">My Orders</p></li>
+      <li style="cursor: pointer;" (click)="AdminOrder()" *ngIf="Admin"><p class="dropdown-item">Manage Orders</p></li>
+      <li style="cursor: pointer;" (click)="AdminProduct()" *ngIf="Admin"><p class="dropdown-item">Manage Products</p></li>
+      <li style="cursor: pointer;" (click)="Checkout()"><p class="dropdown-item">Checkout</p></li>
+      <li style="cursor: pointer;" (click)="logout()"><p class="dropdown-item">Log Out</p></li>
+    </ul>
+  </li>
+</ul>

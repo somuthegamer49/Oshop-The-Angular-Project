@@ -1,0 +1,66 @@
+<div class="center-div m-3 w-100">
+  <div>
+    <h2>Products</h2>
+    <div *ngFor="let item of cart" class="cart2 mb-3">
+      <div
+        class="image-cart p-3"
+        style="background-image: url('{{ item.product.imageUrl }}');"
+      ></div>
+      <div class="price">
+        {{ item.product.price | currency : "INR" }}
+      </div>
+      <div class="category">{{ item.product.category }}</div>
+      <div class="p-3">{{ item.quantity }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="container w-75 p-5">
+  <h2>Users</h2>
+  <div class="input-group flex-nowrap">
+    <input
+      (input)="searchProducts($event)"
+      type="text"
+      class="form-control mt-5 mb-5 admin-product-form"
+      placeholder="Search"
+      aria-label="Username"
+      aria-describedby="addon-wrapping"
+    />
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Pincode</th>
+        <th scope="col">Total</th>
+        <th scope="col">Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        style="cursor: pointer"
+        *ngFor="let order of orders; index as i"
+        (click)="getCart(order)"
+      >
+        <td>{{ i + 1 }}</td>
+        <td>{{ order.address }}</td>
+        <td>{{ order.phone }}</td>
+        <td>{{ order.email }}</td>
+        <td>{{ order.pincode }}</td>
+        <td>{{ order.total | currency : "INR" }}</td>
+        <td>{{ order.orderdate }}</td>
+        <td>
+          <span
+            ><button class="btn btn-success" (click)="cancelOrder(order)">
+              Cancel
+            </button></span
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

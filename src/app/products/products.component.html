@@ -1,0 +1,60 @@
+<div class="d-flex" style="overflow: unset">
+  <div class="sticky">
+    <div class="mt-5" style="width: 10rem">
+      <div
+        *ngFor="let cat of categories"
+        class="cat-cards m-3 p-3"
+        style="border: 1px solid silver; text-align: center"
+        (click)="getCategory(cat.name)"
+      >
+        {{ cat.name }}
+      </div>
+      <div
+        class="cat-cards m-3 p-3"
+        style="border: 1px solid silver; text-align: center"
+        (click)="resetCategory()"
+      >
+        Reset
+      </div>
+    </div>
+  </div>
+  <div class="mt-5 home-display">
+    <div *ngFor="let item of products" class="card m-3" style="width: 18rem">
+      <div
+        class="image-disp"
+        style="background-image: url('{{ item.imageUrl }}');"
+      ></div>
+      <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <h5 class="card-title">{{ item.category }}</h5>
+        <p class="card-text">{{ item.price | currency:"INR" }}</p>
+        <a
+          *ngIf="!ids.has(item.id)"
+          class="btn btn-secondary"
+          (click)="AddToCart(item)"
+          >Add To Cart</a
+        >
+        <div *ngIf="ids.has(item.id)">
+          <button
+            class="btn btn-secondary spl-btn m-3 p-3"
+            (click)="AddToCartMinus(item)"
+          >
+            -</button
+          ><span *ngFor="let cart of productcart"
+            ><span
+              *ngIf="item.id === cart.product.id"
+              class="special m-3 p-3"
+              >{{ cart.quantity }}</span
+            ></span
+          >
+          <button
+            class="btn btn-secondary spl-btn m-3 p-3"
+            (click)="AddToCartPlus(item)"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

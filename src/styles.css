@@ -1,1 +1,96 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'bootstrap-icons/font/bootstrap-icons.min.css';
+
+.dropdown-item{
+    cursor: pointer;
+}
+.logincomponent{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.navpos{
+    display: flex;
+    justify-content: right;
+}
+.admin-product-form{
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+.editimg{
+    height: 3.5rem;
+    width: 4rem;
+}
+.home-display{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 2rem;
+    justify-content: center;
+}
+.image-disp{
+    height: 15rem;
+    width: 100%;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cat-cards:hover{
+    background-color: silver;
+    cursor: pointer;
+}
+.sticky{
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+}
+.special{
+    width: 50%;
+}
+.spl-btn{
+    width: 1.5rem;
+}
+.cart{
+    background-color: lightgray;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.image-cart{
+    height: 7.5rem;
+    width: 5rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    object-fit: cover;
+}
+.price{
+    font-style: italic;
+    width: 5rem;
+}
+.quantity{
+    height: 3.25rem;
+    width: 5rem;
+}
+.category{
+    font-weight: bold;
+    font-style: italic;
+    width: 5rem;
+}
+.list-group-item:hover{
+    background-color: lightgray;
+} 
+.center-div{
+    display: flex;
+    justify-content: center;
+}
+.cart2{
+    background-color: lightgray;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    gap:10rem;
+}
+.thank{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  

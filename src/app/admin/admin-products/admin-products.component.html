@@ -1,0 +1,71 @@
+<div class="container w-50 p-5">
+  <h2>Admin Products</h2>
+  <div class="mb-3 admin-product-form">
+    <input
+      type="text"
+      class="form-control"
+      id="text"
+      aria-describedby="emailHelp"
+      placeholder="Title"
+      (input)="getTitle($event)"
+    />
+  </div>
+  <div class="mb-3 admin-product-form">
+    <input
+      type="number"
+      class="form-control"
+      id="text"
+      aria-describedby="emailHelp"
+      placeholder="Price"
+      (input)="getPrice($event)"
+    />
+  </div>
+  <div class="mb-3 admin-product-form">
+    <input
+      type="text"
+      class="form-control"
+      id="text"
+      aria-describedby="emailHelp"
+      placeholder="Image URL"
+      (input)="getImage($event)"
+    />
+  </div>
+  <select class="admin-product-form" (input)="getCategory($event)">
+    <option [defaultSelected]="true">Select Category</option>
+    <option *ngFor="let cat of categories" value="{{cat.name}}">{{cat.name}}</option>
+  </select>
+  <div class="mt-5 p-3 navpos">
+    <button *ngIf="!editMode" class="btn btn-success" (click)="saveProds()">Save</button>
+    <button *ngIf="editMode" class="btn btn-success" (click)="saveEditProds()">Update</button>
+  </div>
+</div>
+
+<div class="container w-75 p-5">
+  <h2>Edit Products</h2>
+  <div class="input-group flex-nowrap">
+    <input type="text" class="form-control mt-5 mb-5 admin-product-form" placeholder="Search" aria-label="Username" aria-describedby="addon-wrapping" (input)="searchProducts($event)">
+  </div>
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">ImageURL</th>
+      <th scope="col">Category</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let items of products; index as i">
+      <td>{{i+1}}</td>
+      <td>{{items.title}}</td>
+      <td>{{items.price | currency:'INR':true}}</td>
+      <td><img class="editimg" src="{{items.imageUrl}}" alt=""></td>
+      <td>{{items.category}}</td>
+      <td *ngIf="!editMode"><span><button class="btn btn-success" (click)="editProducts(items.id)">Edit</button></span><span><button class="btn btn-danger m-3" (click)="deleteProducts(items.id)">Delete</button></span></td>
+      <td *ngIf="editMode && data.id===items.id"><button class="btn btn-success" (click)="cancelEdit()">Cancel</button></td>
+    </tr>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,36 @@
+<ul
+  class="list-group w-75 container mt-5"
+>
+  <li
+    *ngFor="let order of orderUSer"
+    class="list-group-item d-flex justify-content-between align-items-center"
+    style="cursor: pointer"
+    (click)="showProducts(order)"
+  >
+    <span>{{ order.email }}</span>
+    <span>{{ order.phone }}</span>
+    <span>{{ order.address }}</span>
+    <span>{{ order.pincode }}</span>
+    <span>{{ order.orderdate }}</span>
+    <span class="badge text-bg-secondary rounded-pill m-3 p-3"
+      >Total: {{ order.total | currency : "INR" }}</span
+    >
+  </li>
+</ul>
+
+<div class="home-display">
+  <div *ngFor="let items of cart" class="card cart m-3" style="width: 18rem">
+    <div
+      class="image-disp"
+      style="background-image: url('{{ items.product.imageUrl }}')"
+    ></div>
+    <div class="card-body">
+      <p class="card-text">
+        {{ items.product.category }}
+      </p>
+      <p class="card-text">{{ items.product.title }}</p>
+      <p class="card-text">{{ items.quantity }}</p>
+      <p class="card-text">{{ items.product.price | currency : "INR" }}</p>
+    </div>
+  </div>
+</div>

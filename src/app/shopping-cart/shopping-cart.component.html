@@ -1,0 +1,27 @@
+<div class="container m-3 w-75">
+  <h2>Total: {{ total | currency : "INR" }}</h2>
+  <div class="cart mb-3" *ngFor="let item of productcart">
+    <div
+      class="image-cart"
+      style="background-image: url('{{ item.product.imageUrl }}');"
+    ></div>
+    <div class="price">
+      {{ item.product.price * item.quantity | currency : "INR" }}
+    </div>
+    <div class="category">{{ item.product.category }}</div>
+    <div class="">
+      <button
+        class="btn btn-secondary spl-btn m-3 p-3"
+        (click)="AddToCartMinus(item)"
+      >
+        -</button
+      ><span class="special m-3 p-3">{{ item.quantity }}</span>
+      <button
+        class="btn btn-secondary spl-btn m-3 p-3"
+        (click)="AddToCartPlus(item)"
+      >
+        +
+      </button>
+    </div>
+  </div>
+</div>
