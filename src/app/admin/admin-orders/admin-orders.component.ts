@@ -18,7 +18,7 @@ export class AdminOrdersComponent implements OnInit {
   constructor(private http: HttpClient, private connectService: ConnectService) { }
   ngOnInit() {
     this.connectService.currentData.subscribe(data => this.isadmin = data.isAdmin)
-    this.http.get('http://localhost:3000/orders')
+    this.http.get('https://my-json-server.typicode.com/somuthegamer49/Oshop-The-Angular-Project/orders')
       .subscribe(response => {
         if (this.isadmin && response) {
           this.orders = response
@@ -33,7 +33,7 @@ export class AdminOrdersComponent implements OnInit {
     })
   }
   cancelOrder(order: any) {
-    this.http.delete(`http://localhost:3000/orders/${order.id}`)
+    this.http.delete(`https://my-json-server.typicode.com/somuthegamer49/Oshop-The-Angular-Project/orders/${order.id}`)
       .subscribe(response => {
         console.log(response)
       })

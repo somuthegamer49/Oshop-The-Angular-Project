@@ -25,7 +25,7 @@ export class MyOrdersComponent implements OnInit {
       this.ConnectService.currentData.subscribe(data=> this.admin=data.isAdmin)
       this.ConnectService.currentData.subscribe(data=> this.email=data.email)
       this.ConnectService.currentData.subscribe(data=> this.username=data.username)
-      this.http.get('http://localhost:3000/users')
+      this.http.get('https://my-json-server.typicode.com/somuthegamer49/Oshop-The-Angular-Project/users')
       .subscribe(response=>{
         this.emailcheck = response
         this.emailcheck.forEach((user:any)=>{
@@ -34,7 +34,7 @@ export class MyOrdersComponent implements OnInit {
           }
         })
       })
-      this.http.get('http://localhost:3000/orders')
+      this.http.get('https://my-json-server.typicode.com/somuthegamer49/Oshop-The-Angular-Project/orders')
       .subscribe(response=>{
        if(response){
           this.orders=response

@@ -94,7 +94,7 @@ export class CheckoutComponent implements OnInit {
       orderdate:new Date().toDateString()
     }
     if(this.checkphone && this.checaddress && this.checkpin && this.cartlen>0){
-      this.http.post('http://localhost:3000/orders',this.order).subscribe(response=>{
+      this.http.post('https://my-json-server.typicode.com/somuthegamer49/Oshop-The-Angular-Project/orders',this.order).subscribe(response=>{
         if(response){
           this.connectService.setCartLen(0)
           this.connectService.setFinCart(new Set())

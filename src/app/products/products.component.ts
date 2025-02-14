@@ -31,7 +31,7 @@ export class ProductsComponent implements OnInit {
     this.ConnectService.currentData.subscribe(data => this.ids = data.ids)
     this.ConnectService.currentData.subscribe(data => this.productcart = data.cartproduct)
 
-    this.http.get('http://localhost:3000/products')
+    this.http.get('https://my-json-server.typicode.com/somuthegamer49/Oshop-The-Angular-Project/products')
       .subscribe(response => {
         this.products = response
         this.iniproduct = response
@@ -40,7 +40,7 @@ export class ProductsComponent implements OnInit {
           console.error('Error fetching data:', error);
         }
       )
-    this.http.get('http://localhost:3000/categories')
+    this.http.get('https://my-json-server.typicode.com/somuthegamer49/Oshop-The-Angular-Project/categories')
       .subscribe(response => {
         this.categories = response
       },

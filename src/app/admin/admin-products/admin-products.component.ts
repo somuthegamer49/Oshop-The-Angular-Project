@@ -97,7 +97,7 @@ export class AdminProductsComponent {
       this.data.price=this.price
       this.data.title=this.title
       if(this.data.category!=="" && this.data.imageUrl!=="" && this.data.price>0 && this.data.title!==""){
-        this.http.put(`http://localhost:3000/products/${this.data.id}`,this.data).subscribe(response=>{
+        this.http.put(`https://my-json-server.typicode.com/somuthegamer49/Oshop-The-Angular-Project/products/${this.data.id}`,this.data).subscribe(response=>{
           console.log(response)
           this.editMode = false
           this.router.navigate(['/admin/products'])
@@ -110,7 +110,7 @@ export class AdminProductsComponent {
     }
     deleteProducts(id:any){
       if(confirm('Are you sure that you want to delete the product')){
-        this.http.delete(`http://localhost:3000/products/${id}`).subscribe(response=>{
+        this.http.delete(`https://my-json-server.typicode.com/somuthegamer49/Oshop-The-Angular-Project/products/${id}`).subscribe(response=>{
           console.log(response)
           this.router.navigate(['/admin/products'])
         })

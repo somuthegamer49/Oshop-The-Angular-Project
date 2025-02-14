@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     this.passValue = (event.target as HTMLInputElement).value
   }
   login() {
-    this.http.get('http://localhost:3000/users')
+    this.http.get('https://my-json-server.typicode.com/somuthegamer49/Oshop-The-Angular-Project/users')
       .subscribe(
         response => {
           this.data = response;
